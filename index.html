@@ -1,46 +1,301 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NATO Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .underline-hover {
+            position: relative;
+            display: inline-block;
+        }
+        .underline-hover::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #2563eb;
+            transition: width 0.3s ease;
+        }
+        .underline-hover:hover::after {
+            width: 100%;
+        }
+        .timeline-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            overflow-x: hidden;
+            background: linear-gradient(to right, #1e40af, #60a5fa);
+            border-top: 4px solid black;
+            z-index: 20;
+        }
+        .timeline {
+            display: flex;
+            position: relative;
+            height: 100%;
+            transition: transform 0.1s ease-out;
+        }
+        .timeline-item {
+            flex: 0 0 auto;
+            width: 180px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-right: 4px solid black;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+        .timeline-item h5 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-item p {
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 0 0.75rem;
+        }
+        main {
+            padding-bottom: 120px; /* Prevents content overlap with fixed timeline */
+        }
+        section {
+            border: 4px solid black;
+            transition: background-color 0.2s ease;
+        }
+        section:hover {
+            background-color: #f0f5ff; /* Light blue tint on hover */
+        }
+        .section-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border: 2px solid black;
+            border-radius: 4px;
+            transition: opacity 0.3s ease;
+        }
+        .section-image:hover {
+            opacity: 0.9;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-white font-sans text-black">
+    <header class="bg-white text-black py-6 text-center border-b-4 border-black">
+        <h1 class="text-3xl font-semibold animate-fade-in" style="animation-delay: 0.1s;">NATO Research Site</h1>
+        <p class="mt-2 text-base animate-fade-in underline-hover" style="animation-delay: 0.2s;">
+            Exploring the history and mission of NATO
+        </p>
+    </header>
 
-<h1>NATO Research Site</h1>
-<p><u>This site will teach you how NATO came to be and what it does.</u></p>
-<br>
+    <main class="max-w-3xl mx-auto p-4 space-y-8">
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 0.3s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">Quick Facts</h4>
+            <img src="https://images.unsplash.com/photo-1620131673055-7f0e4d9b4d0b?q=80&w=800&auto=format&fit=crop" alt="NATO flag" class="section-image mb-3">
+            <ul class="list-disc pl-5 space-y-1 text-black text-sm">
+                <li class="animate-fade-in" style="animation-delay: 0.4s;">NATO was created on April 4, 1949.</li>
+                <li class="animate-fade-in" style="animation-delay: 0.5s;">NATO currently has 32 members.</li>
+                <li class="animate-fade-in" style="animation-delay: 0.6s;">It is a transnational military alliance.</li>
+            </ul>
+        </section>
 
-<h4 style="text-indent: 30px;">Quick Facts</h4>
-<br>
-<ul>
-    <li>NATO was created on April 4, 1949.</li>
-    <li>NATO currently has 32 members.</li>
-    <li>It is a transnational military alliance.</li>
-</ul>
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 0.7s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">What is NATO?</h4>
+            <img src="https://images.unsplash.com/photo-1597849437098-4f676adf6972?q=80&w=800&auto=format&fit=crop" alt="NATO headquarters" class="section-image mb-3">
+            <p class="text-black leading-relaxed text-sm">
+                NATO, or the North Atlantic Treaty Organization, is a military and political alliance established in 1949 to ensure the collective defense of its member countries. Headquartered in Brussels, Belgium, it currently includes 32 member nations from North America and Europe. The core principle of NATO is collective security, meaning that an attack on one member is considered an attack on all. This was famously invoked after the September 11 attacks in 2001. Originally formed to counter the Soviet threat during the Cold War, NATO now addresses a wide range of security challenges, including terrorism, cyber threats, and global instability, through joint military exercises, strategic planning, and international cooperation.
+            </p>
+        </section>
 
-<h4 style="text-indent: 30px;">What is NATO?</h4>
-<p style="text-indent: 30px;">
-    NATO, or the North Atlantic Treaty Organization, is a military and political alliance established in 1949 to ensure the collective defense of its member countries. Headquartered in Brussels, Belgium, it currently includes 32 member nations from North America and Europe. The core principle of NATO is collective security, meaning that an attack on one member is considered an attack on all. This was famously invoked after the September 11 attacks in 2001. Originally formed to counter the Soviet threat during the Cold War, NATO now addresses a wide range of security challenges, including terrorism, cyber threats, and global instability, through joint military exercises, strategic planning, and international cooperation.
-</p>
-<br>
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 0.8s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">History of NATO</h4>
+            <img src="https://images.unsplash.com/photo-1580130775562-0a88ab7de7b7?q=80&w=800&auto=format&fit=crop" alt="North Atlantic Treaty signing" class="section-image mb-3">
+            <p class="text-black leading-relaxed text-sm">
+                NATO was established on April 4, 1949, with the signing of the North Atlantic Treaty in Washington, D.C. The 12 founding members were Belgium, Canada, Denmark, France, Iceland, Italy, Luxembourg, the Netherlands, Norway, Portugal, the United Kingdom, and the United States. The alliance was created in response to the growing threat posed by the Soviet Union after World War II. Its primary purpose was to provide collective security against Soviet expansionism, prevent the resurgence of nationalist militarism in Europe, and encourage European political integration. Over the years, NATO has expanded to include 32 member countries and has adapted to address new security challenges in the post-Cold War era.
+            </p>
+        </section>
 
-<h4 style="text-indent: 30px;">History of NATO</h4>
-<p style="text-indent: 30px;">
-    NATO was established on April 4, 1949, with the signing of the North Atlantic Treaty in Washington, D.C. The 12 founding members were Belgium, Canada, Denmark, France, Iceland, Italy, Luxembourg, the Netherlands, Norway, Portugal, the United Kingdom, and the United States. The alliance was created in response to the growing threat posed by the Soviet Union after World War II. Its primary purpose was to provide collective security against Soviet expansionism, prevent the resurgence of nationalist militarism in Europe, and encourage European political integration. Over the years, NATO has expanded to include 32 member countries and has adapted to address new security challenges in the post-Cold War era.
-</p>
-<br>
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 0.9s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">NATO's Role Today</h4>
+            <img src="https://images.unsplash.com/photo-1508672019048-805c376b67b2?q=80&w=800&auto=format&fit=crop" alt="NATO joint exercise" class="section-image mb-3">
+            <p class="text-black leading-relaxed text-sm">
+                Today, NATO continues to play a crucial role in maintaining international peace and security. The alliance conducts joint military exercises, engages in crisis management operations, and collaborates with partner countries to address emerging threats such as cyber attacks and terrorism. NATO also supports democratic values and works to promote stability in regions facing conflict. Recent initiatives include supporting Ukraine in its defense against Russian aggression and enhancing collective defense measures in response to evolving global security dynamics.
+            </p>
+        </section>
 
-<h4 style="text-indent: 30px;">NATO's Role Today</h4>
-<p style="text-indent: 30px;">
-    Today, NATO continues to play a crucial role in maintaining international peace and security. The alliance conducts joint military exercises, engages in crisis management operations, and collaborates with partner countries to address emerging threats such as cyber attacks and terrorism. NATO also supports democratic values and works to promote stability in regions facing conflict. Recent initiatives include supporting Ukraine in its defense against Russian aggression and enhancing collective defense measures in response to evolving global security dynamics.
-</p>
-<hr>
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 1.0s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">NATO's Organizational Structure</h4>
+            <img src="https://images.unsplash.com/photo-1516321318424-4d3b6a7b8f3b?q=80&w=800&auto=format&fit=crop" alt="North Atlantic Council meeting" class="section-image mb-3">
+            <p class="text-black leading-relaxed text-sm">
+                NATO's structure is designed to facilitate decision-making and coordination among member states. The North Atlantic Council (NAC), based in Brussels, is the primary decision-making body, comprising representatives from all member countries. The Secretary General, appointed for a four-year term, chairs the NAC and serves as NATO's chief spokesperson. Military operations are overseen by the Military Committee, which advises the NAC and directs NATO's two main commands: Allied Command Operations (ACO) in Mons, Belgium, and Allied Command Transformation (ACT) in Norfolk, Virginia. These bodies ensure NATO's strategic and operational effectiveness across its missions.
+            </p>
+        </section>
 
-<h4>Credits</h4>
-<ul style="list-style-type: none;">
-    <li>Website by: Vincent</li>
-    <li>Research by: Anthony, David, Mathieu</li>
-</ul>
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 1.1s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">Key NATO Operations</h4>
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop" alt="NATO mission in Afghanistan" class="section-image mb-3">
+            <p class="text-black leading-relaxed text-sm">
+                NATO has undertaken numerous operations to promote security and stability. Notable missions include the International Security Assistance Force (ISAF) in Afghanistan (2003–2014), which aimed to combat terrorism and support Afghan governance, and Operation Unified Protector in Libya (2011), which enforced a no-fly zone during the Libyan civil war. More recently, NATO has led maritime security operations, such as Operation Sea Guardian in the Mediterranean, to counter terrorism and human trafficking. The alliance also conducts regular exercises, like Defender Europe, to enhance readiness and interoperability among member forces.
+            </p>
+        </section>
 
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 1.2s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">NATO's Partnerships</h4>
+            <img src="https://images.unsplash.com/photo-1516321318424-4d3b6a7b8f3b?q=80&w=800&auto=format&fit=crop" alt="NATO and partner nation handshake" class="section-image mb-3">
+            <p class="text-black leading-relaxed text-sm">
+                NATO maintains partnerships with non-member countries to enhance global security. Programs like the Partnership for Peace (PfP), established in 1994, foster cooperation with countries in Europe and the former Soviet Union. NATO also collaborates with nations through the Mediterranean Dialogue, Istanbul Cooperation Initiative, and bilateral partnerships with countries like Australia and Japan. These partnerships promote joint training, interoperability, and dialogue on security issues, extending NATO's influence beyond its member states.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 1.3s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">NATO and Technology</h4>
+            <img src="https://images.unsplash.com/photo-1516321318424-4d3b6a7b8f3b?q=80&w=800&auto=format&fit=crop" alt="Cybersecurity control room" class="section-image mb-3">
+            <p class="text-black leading-relaxed text-sm">
+                NATO invests in emerging technologies to address modern security challenges. The Defence Innovation Accelerator for the North Atlantic (DIANA) supports research in AI, cybersecurity, and quantum computing. NATO's Science and Technology Organization (STO) conducts cutting-edge research to enhance defense capabilities. These initiatives ensure the alliance remains at the forefront of technological advancements, particularly in countering cyber threats and hybrid warfare.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 1.4s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">NATO Enlargement Process</h4>
+            <img src="https://images.unsplash.com/photo-1516321318424-4d3b6a7b8f3b?q=80&w=800&auto=format&fit=crop" alt="Map of NATO member states" class="section-image mb-3">
+            <p class="text-black leading-relaxed text-sm">
+                NATO's enlargement process allows countries to join the alliance through a structured accession process. Aspiring members must meet democratic, military, and economic standards outlined in the 1995 Study on NATO Enlargement. Countries like Finland and Sweden joined in 2023 and 2024, respectively, after completing Membership Action Plans (MAPs). The open-door policy remains a cornerstone of NATO's commitment to expanding collective security.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 1.5s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">NATO's Crisis Response</h4>
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop" alt="NATO Response Force deployment" class="section-image mb-3">
+            <p class="text-black leading-relaxed text-sm">
+                NATO plays a vital role in crisis response, deploying forces and resources to address conflicts and humanitarian emergencies. The NATO Response Force (NRF), established in 2002, provides rapid deployment capabilities for crises like natural disasters or military conflicts. Operations in Kosovo (KFOR) and support for disaster relief, such as after the 2005 Pakistan earthquake, demonstrate NATO's commitment to global stability and humanitarian aid.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 1.6s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">Future Challenges for NATO</h4>
+            <img src="https://images.unsplash.com/photo-1516321318424-4d3b6a7b8f3b?q=80&w=800&auto=format&fit=crop" alt="Hybrid warfare scenario" class="section-image mb-3">
+            <p class="text-black leading-relaxed text-sm">
+                NATO faces evolving challenges, including hybrid warfare, climate change, and geopolitical tensions. The alliance is adapting by strengthening cyber defenses, addressing the security implications of climate change, and countering disinformation campaigns. NATO's 2022 Strategic Concept emphasizes resilience and partnerships to tackle these issues, ensuring the alliance remains prepared for future threats in a rapidly changing world.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-md p-5 animate-fade-in" style="animation-delay: 1.7s;">
+            <h4 class="text-xl font-medium text-blue-600 mb-3">Credits</h4>
+            <img src="https://images.unsplash.com/photo-1516321318424-4d3b6a7b8f3b?q=80&w=800&auto=format&fit=crop" alt="Team collaboration" class="section-image mb-3">
+            <ul class="list-none space-y-1 text-black text-sm">
+                <li class="animate-fade-in" style="animation-delay: 1.8s;">Website by: Vincent, David</li>
+                <li class="animate-fade-in" style="animation-delay: 1.9s;">Research by: Anthony, David, Mathieu</li>
+            </ul>
+        </section>
+    </main>
+
+    <div class="timeline-container">
+        <div class="timeline">
+            <div class="timeline-item">
+                <h5>1949</h5>
+                <p>NATO founded with 12 members</p>
+            </div>
+            <div class="timeline-item">
+                <h5>1952</h5>
+                <p>Greece and Türkiye join NATO</p>
+            </div>
+            <div class="timeline-item">
+                <h5>1955</h5>
+                <p>West Germany joins NATO</p>
+            </div>
+            <div class="timeline-item">
+                <h5>1961</h5>
+                <p>Berlin Crisis escalates tensions</p>
+            </div>
+            <div class="timeline-item">
+                <h5>1966</h5>
+                <p>France exits military structure</p>
+            </div>
+            <div class="timeline-item">
+                <h5>1979</h5>
+                <p>Dual-Track Decision on missiles</p>
+            </div>
+            <div class="timeline-item">
+                <h5>1983</h5>
+                <p>Able Archer exercise tests readiness</p>
+            </div>
+            <div class="timeline-item">
+                <h5>1989</h5>
+                <p>Berlin Wall falls, Cold War wanes</p>
+            </div>
+            <div class="timeline-item">
+                <h5>1991</h5>
+                <p>Cold War ends, NATO adapts</p>
+            </div>
+            <div class="timeline-item">
+                <h5>1995</h5>
+                <p>Bosnia operation (Deliberate Force)</p>
+            </div>
+            <div class="timeline-item">
+                <h5>1999</h5>
+                <p>Poland, Hungary, Czech Republic join</p>
+            </div>
+            <div class="timeline-item">
+                <h5>2001</h5>
+                <p>Article 5 invoked after 9/11</p>
+            </div>
+            <div class="timeline-item">
+                <h5>2004</h5>
+                <p>Seven Eastern European nations join</p>
+            </div>
+            <div class="timeline-item">
+                <h5>2017</h5>
+                <p>Montenegro joins NATO</p>
+            </div>
+            <div class="timeline-item">
+                <h5>2020</h5>
+                <p>North Macedonia joins as 30th member</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-white text-black text-center py-4 mt-8 text-sm border-t-4 border-black">
+        <p>© 2025 NATO Research Site. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function updateTimeline() {
+            const timeline = document.querySelector('.timeline');
+            const timelineContainer = document.querySelector('.timeline-container');
+            const timelineWidth = timeline.scrollWidth - timelineContainer.offsetWidth;
+
+            window.addEventListener('scroll', () => {
+                const scrollPercentage = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+                const translateX = Math.max(-timelineWidth, Math.min(0, -scrollPercentage * timelineWidth));
+                timeline.style.transform = `translateX(${translateX}px)`;
+            });
+        }
+
+        // Initial call and update on resize
+        updateTimeline();
+        window.addEventListener('resize', updateTimeline);
+    </script>
 </body>
 </html>
